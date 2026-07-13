@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
+import OfficeGallery from './components/OfficeGallery';
 import Treatments from './components/Treatments';
 import ApneiaSono from './components/ApneiaSono';
 import Curriculum from './components/Curriculum';
@@ -26,8 +27,8 @@ export default function App() {
     { label: 'Sobre', href: '#sobre' },
     { label: 'Tratamentos', href: '#tratamentos' },
     { label: 'Apneia e Sono', href: '#apneia' },
-    { label: 'Especializações', href: '#curriculo' },
     { label: 'Cursos', href: '#cursos' },
+    { label: 'Especializações', href: '#curriculo' },
   ];
 
   return (
@@ -43,10 +44,11 @@ export default function App() {
 
       <Hero whatsappLink={whatsappLink} C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
       <About C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
+      <OfficeGallery C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
       <Treatments whatsappLink={whatsappLink} C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
       <ApneiaSono C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
-      <Curriculum C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
       <Courses whatsappLink={whatsappLink} C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
+      <Curriculum C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
       <Contact whatsappLink={whatsappLink} C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
       <Footer C_LIGHT={C_LIGHT} C_DARKER={C_DARKER} C_MID={C_MID} />
     </div>
