@@ -36,46 +36,65 @@ export default function Courses({ whatsappLink, C_LIGHT, C_DARK, C_MID }) {
           ].map((curso, i) => (
             <motion.div
               key={i}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-              variants={fadeInUp}
-              className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 lg:p-8 rounded-2xl transition-all duration-300"
-              style={{ backgroundColor: `${C_LIGHT}55`, border: `1px solid ${C_DARK}12` }}
-              onMouseEnter={e => {
-                e.currentTarget.style.backgroundColor = C_LIGHT;
-                e.currentTarget.style.boxShadow = `0 8px 32px ${C_DARK}15`;
-              }}
-              onMouseLeave={e => {
-                e.currentTarget.style.backgroundColor = `${C_LIGHT}55`;
-                e.currentTarget.style.boxShadow = 'none';
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
+              className="group flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-6 lg:p-8 rounded-2xl relative overflow-hidden"
+              style={{ backgroundColor: C_LIGHT, border: `1px solid ${C_DARK}12` }}
+              variants={{
+                rest: { y: 0, boxShadow: 'none' },
+                hover: {
+                  y: -6,
+                  boxShadow: `0 16px 40px ${C_DARK}1F`,
+                  transition: { duration: 0.5, ease: "easeOut" }
+                }
               }}
             >
-              <div>
+              <motion.div
+                className="absolute inset-0 pointer-events-none"
+                variants={{
+                  rest: { opacity: 0 },
+                  hover: { opacity: 1, transition: { duration: 0.5 } }
+                }}
+                style={{
+                  background: `radial-gradient(circle at 20% 30%, ${C_MID}55, transparent 60%)`
+                }}
+              />
+
+              <motion.div
+                className="relative z-10"
+                variants={{
+                  rest: { x: 0 },
+                  hover: { x: 4, transition: { duration: 0.4, ease: "easeOut" } }
+                }}
+              >
                 <h4 className="font-serif text-lg mb-1" style={{ color: C_DARK }}>
                   {curso.nome}
                 </h4>
                 <p className="text-sm font-light" style={{ color: `${C_DARK}AA` }}>
                   {curso.detalhes}
                 </p>
-              </div>
-              <a
+              </motion.div>
+
+              <motion.a
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-11 h-11 flex items-center justify-center rounded-full transition-all duration-300 flex-shrink-0 self-start sm:self-auto"
+                className="w-11 h-11 flex items-center justify-center rounded-full flex-shrink-0 self-start sm:self-auto relative z-10"
                 style={{ backgroundColor: `${C_DARK}15`, color: C_DARK }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.backgroundColor = C_DARK;
-                  e.currentTarget.style.color = C_LIGHT;
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.backgroundColor = `${C_DARK}15`;
-                  e.currentTarget.style.color = C_DARK;
+                variants={{
+                  rest: { backgroundColor: `${C_DARK}15`, color: C_DARK, rotate: 0, scale: 1 },
+                  hover: {
+                    backgroundColor: C_DARK,
+                    color: C_LIGHT,
+                    rotate: 90,
+                    scale: 1.1,
+                    transition: { duration: 0.45, ease: "easeOut" }
+                  }
                 }}
               >
                 <ChevronRight size={18} />
-              </a>
+              </motion.a>
             </motion.div>
           ))}
         </div>

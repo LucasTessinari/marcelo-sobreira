@@ -31,10 +31,10 @@ export default function Contact({ whatsappLink, C_LIGHT, C_DARK, C_MID }) {
           </div>
           <div className="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-8 pt-16 font-light text-sm" style={{ color: `${C_LIGHT}70` }}>
             <div className="flex items-center gap-2">
-              <MapPin size={16} /> Av. Principal, 1000 - Sala 42, Cidade - SP
+              <MapPin size={16} /> Av. Nossa Sra. da Penha, 1495 - Centro, Alegre - ES
             </div>
             <div className="hidden lg:block w-1 h-1 rounded-full" style={{ backgroundColor: `${C_LIGHT}40` }} />
-            <div>contato@drnome.com.br</div>
+            <div>contato@drmarcelo.com.br</div>
           </div>
         </motion.div>
       </div>

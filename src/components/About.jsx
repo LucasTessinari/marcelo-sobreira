@@ -51,9 +51,8 @@ export default function About({ C_LIGHT, C_DARK, C_MID }) {
               style={{ backgroundColor: `${C_MID}50` }}
             >
               <img
-                src="/png-preto.png"
-                className="w-full opacity-20 object-contain mix-blend-multiply"
-                alt="Logo Marcelo"
+                src="../public/marcelo-sobre.jpeg"
+                alt="Marcelo Sobreira Sobre"
               />
             </div>
           </motion.div>

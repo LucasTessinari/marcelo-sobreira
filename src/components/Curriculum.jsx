@@ -8,24 +8,39 @@ const fadeInUp = {
 
 const staggerContainer = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.2 } }
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
 };
+
+const especializacoes = [
+  { ano: '2022', anoFim: 'Presente', titulo: 'Mestrado em Reabilitação Oral', inst: 'Universidade Federal' },
+  { ano: '2019', anoFim: '2021', titulo: 'Especialização em Implantodontia', inst: 'Associação Brasileira de Odontologia' },
+  { ano: '2014', anoFim: '2018', titulo: 'Graduação em Odontologia', inst: 'Universidade Estadual' },
+  { ano: '2022', anoFim: 'Presente', titulo: 'Mestrado em Reabilitação Oral', inst: 'Universidade Federal' },
+  { ano: '2019', anoFim: '2021', titulo: 'Especialização em Implantodontia', inst: 'Associação Brasileira de Odontologia' },
+  { ano: '2014', anoFim: '2018', titulo: 'Graduação em Odontologia', inst: 'Universidade Estadual' },
+  { ano: '2022', anoFim: 'Presente', titulo: 'Mestrado em Reabilitação Oral', inst: 'Universidade Federal' },
+  { ano: '2019', anoFim: '2021', titulo: 'Especialização em Implantodontia', inst: 'Associação Brasileira de Odontologia' },
+  { ano: '2014', anoFim: '2018', titulo: 'Graduação em Odontologia', inst: 'Universidade Estadual' },
+];
 
 export default function Curriculum({ C_LIGHT, C_DARK, C_MID }) {
   return (
     <section id="curriculo" className="py-24" style={{ backgroundColor: C_LIGHT }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
           variants={fadeInUp}
-          className="mb-16"
+          className="mb-20 text-center max-w-2xl mx-auto"
         >
-          <h2 className="text-4xl md:text-5xl font-serif font-light mb-4" style={{ color: C_DARK }}>
+          <span className="uppercase tracking-widest text-xs font-semibold" style={{ color: `${C_DARK}70` }}>
+            Formação Acadêmica
+          </span>
+          <h2 className="text-4xl md:text-5xl font-serif font-light mt-3 mb-4" style={{ color: C_DARK }}>
             Trajetória e <span className="italic" style={{ color: `${C_DARK}70` }}>Especializações</span>
           </h2>
-          <p className="font-light max-w-2xl" style={{ color: `${C_DARK}AA` }}>
+          <p className="font-light" style={{ color: `${C_DARK}AA` }}>
             Constante aprimoramento acadêmico para oferecer o que há de mais seguro e moderno na odontologia mundial.
           </p>
         </motion.div>
@@ -35,37 +50,65 @@ export default function Curriculum({ C_LIGHT, C_DARK, C_MID }) {
           whileInView="visible"
           viewport={{ once: true }}
           variants={staggerContainer}
-          className="columns-1 md:columns-2 lg:columns-3 gap-8 lg:gap-12"
+          className="relative"
         >
-          {[
-            { ano: '2022 - Presente', titulo: 'Mestrado em Reabilitação Oral', inst: 'Universidade Federal' },
-            { ano: '2019 - 2021', titulo: 'Especialização em Implantodontia', inst: 'Associação Brasileira de Odontologia' },
-            { ano: '2014 - 2018', titulo: 'Graduação em Odontologia', inst: 'Universidade Estadual' },
-            { ano: '2022 - Presente', titulo: 'Mestrado em Reabilitação Oral', inst: 'Universidade Federal' },
-            { ano: '2019 - 2021', titulo: 'Especialização em Implantodontia', inst: 'Associação Brasileira de Odontologia' },
-            { ano: '2014 - 2018', titulo: 'Graduação em Odontologia', inst: 'Universidade Estadual' },
-            { ano: '2022 - Presente', titulo: 'Mestrado em Reabilitação Oral', inst: 'Universidade Federal' },
-            { ano: '2019 - 2021', titulo: 'Especialização em Implantodontia', inst: 'Associação Brasileira de Odontologia' },
-            { ano: '2014 - 2018', titulo: 'Graduação em Odontologia', inst: 'Universidade Estadual' },
-          ].map((item, i) => (
+          <div
+            className="absolute left-[88px] sm:left-[104px] top-2 bottom-2 w-px"
+            style={{ backgroundColor: `${C_DARK}20` }}
+          />
+
+          {especializacoes.map((item, i) => (
             <motion.div
               key={i}
               variants={fadeInUp}
-              className="relative pl-6 ml-2 mb-10 break-inside-avoid inline-block w-full border-l"
-              style={{ borderColor: C_MID }}
+              initial="rest"
+              whileHover="hover"
+              animate="rest"
+              className="relative flex gap-6 sm:gap-8 pb-12 last:pb-0 group"
             >
-              <div className="absolute -left-[18px] p-1 rounded-full" style={{ backgroundColor: C_LIGHT }}>
-                <Award size={16} style={{ color: C_MID }} />
+              <div className="flex-shrink-0 w-[64px] sm:w-[80px] text-right pt-2">
+                <span
+                  className="block text-sm font-serif leading-tight transition-colors duration-300"
+                  style={{ color: C_DARK }}
+                >
+                  {item.ano}
+                </span>
+                <span
+                  className="block text-[10px] uppercase tracking-wider mt-0.5"
+                  style={{ color: `${C_DARK}60` }}
+                >
+                  {item.anoFim}
+                </span>
               </div>
-              <span className="text-xs tracking-widest uppercase font-semibold" style={{ color: `${C_DARK}70` }}>
-                {item.ano}
-              </span>
-              <h4 className="text-lg lg:text-xl font-serif mt-2 mb-1" style={{ color: C_DARK }}>
-                {item.titulo}
-              </h4>
-              <p className="font-light text-sm" style={{ color: `${C_DARK}AA` }}>
-                {item.inst}
-              </p>
+
+              <motion.div
+                variants={{
+                  rest: { scale: 1 },
+                  hover: { scale: 1.1, transition: { duration: 0.3, ease: "easeOut" } },
+                }}
+                className="relative z-10 flex-shrink-0 w-11 h-11 rounded-full flex items-center justify-center"
+                style={{
+                  backgroundColor: C_LIGHT,
+                  border: `1.5px solid ${C_MID}90`,
+                }}
+              >
+                <Award size={18} strokeWidth={1.5} style={{ color: C_DARK }} />
+              </motion.div>
+
+              <motion.div
+                variants={{
+                  rest: { x: 0 },
+                  hover: { x: 4, transition: { duration: 0.3, ease: "easeOut" } },
+                }}
+                className="flex-1 pt-2"
+              >
+                <h4 className="text-lg lg:text-xl font-serif mb-1.5 leading-snug" style={{ color: C_DARK }}>
+                  {item.titulo}
+                </h4>
+                <p className="font-light text-sm" style={{ color: `${C_DARK}AA` }}>
+                  {item.inst}
+                </p>
+              </motion.div>
             </motion.div>
           ))}
         </motion.div>

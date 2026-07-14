@@ -6,6 +6,21 @@ const fadeInUp = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
 };
 
+const iconVariants = {
+  rest: { rotate: 0, scale: 1 },
+  hover: { rotate: -8, scale: 1.12, transition: { duration: 0.45, ease: "easeOut" } }
+};
+
+const arrowVariants = {
+  rest: { x: 0 },
+  hover: { x: 6, transition: { duration: 0.4, ease: "easeOut" } }
+};
+
+const underlineVariants = {
+  rest: { scaleX: 0 },
+  hover: { scaleX: 1, transition: { duration: 0.4, ease: "easeOut" } }
+};
+
 export default function Treatments({ whatsappLink, C_LIGHT, C_DARK, C_MID }) {
   return (
     <section id="tratamentos" className="py-24 lg:py-32" style={{ backgroundColor: C_MID }}>
@@ -38,36 +53,72 @@ export default function Treatments({ whatsappLink, C_LIGHT, C_DARK, C_MID }) {
             return (
               <motion.div
                 key={i}
-                initial="hidden"
-                whileInView="visible"
-                viewport={{ once: true }}
-                variants={fadeInUp}
-                className="group flex flex-col p-8 lg:p-10 rounded-2xl transition-all duration-500 cursor-default"
-                style={{ backgroundColor: `${C_LIGHT}55`, border: `1px solid ${C_DARK}12` }}
-                onMouseEnter={e => {
-                  e.currentTarget.style.backgroundColor = C_LIGHT;
-                  e.currentTarget.style.boxShadow = `0 12px 40px ${C_DARK}18`;
-                }}
-                onMouseLeave={e => {
-                  e.currentTarget.style.backgroundColor = `${C_LIGHT}55`;
-                  e.currentTarget.style.boxShadow = 'none';
+                initial="rest"
+                whileHover="hover"
+                animate="rest"
+                className="group flex flex-col p-8 lg:p-10 rounded-2xl cursor-default relative overflow-hidden"
+                style={{ backgroundColor: C_LIGHT, border: `1px solid ${C_DARK}12` }}
+                variants={{
+                  rest: { y: 0, boxShadow: 'none' },
+                  hover: {
+                    y: -8,
+                    boxShadow: `0 20px 45px ${C_DARK}22`,
+                    transition: { duration: 0.5, ease: "easeOut" }
+                  }
                 }}
               >
-                <div className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 transition-all duration-500 group-hover:scale-105" style={{ backgroundColor: `${C_MID}80` }}>
+                <motion.div
+                  className="absolute inset-0 pointer-events-none"
+                  variants={{
+                    rest: { opacity: 0 },
+                    hover: { opacity: 1, transition: { duration: 0.5 } }
+                  }}
+                  style={{
+                    background: `radial-gradient(circle at 30% 20%, ${C_MID}55, transparent 60%)`
+                  }}
+                />
+
+                <motion.div
+                  className="w-14 h-14 rounded-xl flex items-center justify-center mb-6 relative z-10"
+                  style={{ backgroundColor: `${C_MID}80` }}
+                  variants={iconVariants}
+                >
                   <Icon size={26} strokeWidth={1.5} style={{ color: C_DARK }} />
-                </div>
-                <h3 className="text-xl font-serif mb-3" style={{ color: C_DARK }}>{trat.t}</h3>
-                <p className="font-light leading-relaxed text-sm flex-grow mb-8" style={{ color: `${C_DARK}AA` }}>
+                </motion.div>
+
+                <motion.h3
+                  className="text-xl font-serif mb-3 relative z-10"
+                  style={{ color: C_DARK }}
+                  variants={{
+                    rest: { x: 0 },
+                    hover: { x: 4, transition: { duration: 0.4, ease: "easeOut" } }
+                  }}
+                >
+                  {trat.t}
+                </motion.h3>
+
+                <p className="font-light leading-relaxed text-sm flex-grow mb-8 relative z-10" style={{ color: `${C_DARK}AA` }}>
                   {trat.d}
                 </p>
+
                 <a
                   href={whatsappLink}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-xs uppercase tracking-widest font-semibold flex items-center gap-2 transition-all group-hover:gap-4"
+                  className="text-xs uppercase tracking-widest font-semibold flex items-center gap-2 relative z-10 w-fit"
                   style={{ color: C_DARK }}
                 >
-                  Saber Mais <ChevronRight size={14} />
+                  <span className="relative">
+                    Saber Mais
+                    <motion.span
+                      className="absolute left-0 -bottom-1 h-[1.5px] w-full origin-left"
+                      style={{ backgroundColor: C_DARK }}
+                      variants={underlineVariants}
+                    />
+                  </span>
+                  <motion.span variants={arrowVariants} className="flex">
+                    <ChevronRight size={14} />
+                  </motion.span>
                 </a>
               </motion.div>
             );

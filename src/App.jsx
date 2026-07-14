@@ -44,9 +44,9 @@ export default function App() {
 
       <Hero whatsappLink={whatsappLink} C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
       <About C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
-      <OfficeGallery C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
+      <OfficeGallery whatsappLink={whatsappLink} C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
       <Treatments whatsappLink={whatsappLink} C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
-      <ApneiaSono C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
+      <ApneiaSono whatsappLink={whatsappLink} C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
       <Courses whatsappLink={whatsappLink} C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
       <Curriculum C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
       <Contact whatsappLink={whatsappLink} C_LIGHT={C_LIGHT} C_DARK={C_DARK} C_MID={C_MID} />
