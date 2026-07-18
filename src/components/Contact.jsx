@@ -18,16 +18,39 @@ export default function Contact({ whatsappLink, C_LIGHT, C_DARK, C_MID }) {
           <p className="font-light text-lg" style={{ color: `${C_LIGHT}BB` }}>
             Fale diretamente com nossa recepção pelo WhatsApp, tire suas dúvidas e escolha o melhor horário para sua avaliação.
           </p>
-          <div className="pt-6">
-            <a
+          <div className="pt-6 flex justify-center">
+            <motion.a
               href={whatsappLink}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center gap-3 px-10 py-5 rounded-lg text-sm uppercase tracking-widest font-semibold w-full sm:w-auto transition-all hover:opacity-90"
-              style={{ backgroundColor: C_MID, color: C_DARK, boxShadow: `0 8px 32px ${C_DARK}60` }}
+              initial="rest"
+              whileHover="hover"
+              whileTap={{ scale: 0.96 }}
+              animate="rest"
+              className="relative inline-flex items-center justify-center gap-3 px-10 py-5 rounded-lg text-sm uppercase tracking-widest font-semibold w-full sm:w-auto overflow-hidden"
+              style={{ backgroundColor: C_MID, color: C_DARK }}
+              variants={{
+                rest: { scale: 1, boxShadow: `0 8px 32px ${C_DARK}60` },
+                hover: {
+                  scale: 1.05,
+                  boxShadow: `0 14px 40px ${C_DARK}80`,
+                  transition: { duration: 0.35, ease: "easeOut" },
+                },
+              }}
             >
-              <MessageCircle size={18} /> Conversar no WhatsApp
-            </a>
+              <motion.span
+                className="absolute inset-0"
+                variants={{
+                  rest: { x: "-120%" },
+                  hover: { x: "120%", transition: { duration: 0.7, ease: "easeInOut" } },
+                }}
+                style={{
+                  background: `linear-gradient(115deg, transparent 30%, ${C_DARK}25 50%, transparent 70%)`,
+                }}
+              />
+              <MessageCircle size={18} className="relative z-10" />
+              <span className="relative z-10">Conversar no WhatsApp</span>
+            </motion.a>
           </div>
           <div className="flex flex-col lg:flex-row justify-center items-center gap-4 lg:gap-8 pt-16 font-light text-sm" style={{ color: `${C_LIGHT}70` }}>
             <div className="flex items-center gap-2">
