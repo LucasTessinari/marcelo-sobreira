@@ -12,15 +12,25 @@ const staggerContainer = {
 };
 
 const especializacoes = [
-  { ano: '2022', anoFim: 'Presente', titulo: 'Mestrado em Reabilitação Oral', inst: 'Universidade Federal' },
-  { ano: '2019', anoFim: '2021', titulo: 'Especialização em Implantodontia', inst: 'Associação Brasileira de Odontologia' },
-  { ano: '2014', anoFim: '2018', titulo: 'Graduação em Odontologia', inst: 'Universidade Estadual' },
-  { ano: '2022', anoFim: 'Presente', titulo: 'Mestrado em Reabilitação Oral', inst: 'Universidade Federal' },
-  { ano: '2019', anoFim: '2021', titulo: 'Especialização em Implantodontia', inst: 'Associação Brasileira de Odontologia' },
-  { ano: '2014', anoFim: '2018', titulo: 'Graduação em Odontologia', inst: 'Universidade Estadual' },
-  { ano: '2022', anoFim: 'Presente', titulo: 'Mestrado em Reabilitação Oral', inst: 'Universidade Federal' },
-  { ano: '2019', anoFim: '2021', titulo: 'Especialização em Implantodontia', inst: 'Associação Brasileira de Odontologia' },
-  { ano: '2014', anoFim: '2018', titulo: 'Graduação em Odontologia', inst: 'Universidade Estadual' },
+  { ano: '2025', anoFim: '2025', titulo: 'Curso SEPB - Síndrome do Envelhecimento Precoce Bucal', inst: 'Prof. Paulo Vinícius Soares - Cachoeiro de Itapemirim' },
+  { ano: '2024', anoFim: '2024', titulo: 'Treinamento Clínico em Resina Composta (Dentes Anteriores e Posteriores)', inst: 'Prof. Bruno Reis - Uberlândia' },
+  { ano: '2023', anoFim: '2023', titulo: 'Imersão em Resinas Anteriores - Método ONE', inst: 'Prof. Bruno Reis - Vitória' },
+  { ano: '2023', anoFim: '2023', titulo: 'Reabilitação Adesiva de Casos Estéticos e Funcionais', inst: 'Prof. Paulo Vinícius Soares - Vitória' },
+  { ano: '2021', anoFim: '2021', titulo: 'Imersão em Placas Oclusais', inst: 'Prof. Roberto Garanhani - Vitória' },
+  { ano: '2018', anoFim: '2018', titulo: 'Curso de Laserterapia', inst: 'Profa. Rianne Vilela - Guarapari' },
+  { ano: '2012', anoFim: '2012', titulo: 'Especialização em Ortodontia', inst: 'Faculdade Redentor' },
+  { ano: '2012', anoFim: '2012', titulo: '18º Congresso Brasileiro de Ortodontia', inst: 'São Paulo' },
+  { ano: '2012', anoFim: '2012', titulo: '13º Congresso de Odontologia do Espírito Santo', inst: 'Vitória' },
+  { ano: '2010', anoFim: '2010', titulo: 'Formação em Tratamento do Ronco e Apneia do Sono com Aparelhos Orais', inst: 'Rio de Janeiro' },
+  { ano: '2010', anoFim: '2010', titulo: '17º Congresso Brasileiro de Ortodontia', inst: 'São Paulo' },
+  { ano: '2009', anoFim: '2009', titulo: 'Especialização em Saúde da Família', inst: 'Faculdade Redentor' },
+  { ano: '2009', anoFim: '2009', titulo: '12º Congresso de Odontologia do Espírito Santo', inst: 'Vitória' },
+  { ano: '2008', anoFim: '2008', titulo: '10º Congresso Internacional de Odontologia de Minas Gerais', inst: 'Belo Horizonte' },
+  { ano: '2005', anoFim: '2005', titulo: 'Atualização em Odontologia Estética e Clareamento Dental', inst: 'Vitória' },
+  { ano: '2004', anoFim: '2004', titulo: 'Especialização em Docência do Ensino Superior', inst: 'Ferlagos' },
+  { ano: '2004', anoFim: '2004', titulo: 'Atualização em Endodontia', inst: 'Instituto Dentalis - Itaperuna' },
+  { ano: '2003', anoFim: '2003', titulo: 'Atualização de Odontologia em Saúde Coletiva e PSF', inst: 'UFES' },
+  { ano: '2000', anoFim: '2000', titulo: 'Graduação em Odontologia', inst: 'Faculdade de Odontologia de Campos' },
 ];
 
 export default function Curriculum({ C_LIGHT, C_DARK, C_MID }) {

@@ -29,13 +29,13 @@ export default function Hero({ whatsappLink, C_LIGHT, C_DARK, C_MID }) {
       />
 
       <div className="relative z-10 w-full max-w-7xl mx-auto min-h-[calc(100vh-96px)] lg:min-h-screen px-4 sm:px-6 lg:px-0">
-        {/* MOBILE */}
-        <div className="lg:hidden pt-6 pb-12">
+        {/* MOBILE / TABLET */}
+        <div className="lg:hidden pt-6 pb-8">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
-            className="relative overflow-hidden rounded-[2rem] border px-5 pt-6 pb-6"
+            className="relative overflow-hidden rounded-[2rem] border px-5 pt-6 pb-6 sm:px-6"
             style={{
               background:
                 "linear-gradient(180deg, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0.04) 100%)",
@@ -55,48 +55,86 @@ export default function Hero({ whatsappLink, C_LIGHT, C_DARK, C_MID }) {
               Odontologia de Excelência
             </motion.div>
 
-            <div className="mt-6 flex items-start justify-between gap-3">
-              <motion.div variants={fadeInUp} className="w-[56%] min-w-0">
-                <h1
-                  className="text-[2.35rem] leading-[0.96] font-serif font-light"
-                  style={{ color: C_DARK }}
-                >
-                  Resultados Reais{" "}
-                  <span className="italic" style={{ color: `${C_DARK}80` }}>
-                    Transformando
-                  </span>{" "}
-                  Sorrisos.
-                </h1>
-
-                <p
-                  className="mt-5 text-[14px] leading-[1.8] font-light"
-                  style={{ color: `${C_DARK}BB` }}
-                >
-                  Tecnologia avançada, conforto e um atendimento personalizado
-                  focado na sua saúde bucal.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, x: 18, y: 18 }}
-                animate={{ opacity: 1, x: 0, y: 0 }}
-                transition={{ duration: 0.9, delay: 0.35, ease: "easeOut" }}
-                className="w-[44%] flex justify-end self-end"
+            {/* Título sempre em largura total, encolhendo com clamp antes de disputar espaço com a imagem */}
+            <motion.div variants={fadeInUp} className="mt-6">
+              <h1
+                className="font-serif font-light leading-[1.05]"
+                style={{
+                  color: C_DARK,
+                  fontSize: "clamp(1.7rem, 7vw, 2.35rem)",
+                }}
               >
+                Resultados Reais{" "}
+                <span className="italic" style={{ color: `${C_DARK}80` }}>
+                  Transformando
+                </span>{" "}
+                Sorrisos.
+              </h1>
+
+              <p
+                className="mt-4 leading-[1.8] font-light"
+                style={{
+                  color: `${C_DARK}BB`,
+                  fontSize: "clamp(0.8rem, 2.6vw, 0.875rem)",
+                }}
+              >
+                Tecnologia avançada, conforto e um atendimento personalizado
+                focado na sua saúde bucal.
+              </p>
+            </motion.div>
+
+            {/* Imagem + badge ancorados juntos — o badge sempre cobre o corte inferior da imagem */}
+            <motion.div
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, delay: 0.35, ease: "easeOut" }}
+              className="relative mt-4 flex justify-center"
+            >
+              <div className="relative w-[68%] min-[420px]:w-[58%] sm:w-[46%]">
                 <img
                   src="/marcelo-inicio.png"
                   alt="Dr. Marcelo"
                   className="w-full h-auto object-contain object-bottom drop-shadow-[0_18px_35px_rgba(42,37,34,0.28)]"
                 />
-              </motion.div>
-            </div>
 
-            <motion.div variants={fadeInUp} className="mt-6">
+                <div
+                  className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-[85%] px-3 py-2.5 rounded-2xl flex items-center gap-2.5 backdrop-blur-md border"
+                  style={{
+                    backgroundColor: "rgba(212, 205, 198, 0.95)",
+                    borderColor: "rgba(255, 255, 255, 0.55)",
+                    boxShadow: "0 16px 30px rgba(0, 0, 0, 0.12)",
+                  }}
+                >
+                  <div
+                    className="w-8 h-8 rounded-full flex items-center justify-center shrink-0"
+                    style={{ backgroundColor: C_DARK, color: C_LIGHT }}
+                  >
+                    <Award size={15} />
+                  </div>
+                  <div className="min-w-0">
+                    <p
+                      className="text-[12px] font-bold font-serif leading-none mb-0.5 whitespace-nowrap"
+                      style={{ color: C_DARK }}
+                    >
+                      +15 Anos
+                    </p>
+                    <p
+                      className="text-[8px] tracking-[0.14em] uppercase font-semibold whitespace-nowrap"
+                      style={{ color: `${C_DARK}90` }}
+                    >
+                      De Experiência
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div variants={fadeInUp} className="mt-8">
               <a
                 href={whatsappLink}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-3 px-5 py-4 rounded-xl text-[10px] uppercase tracking-[0.16em] font-semibold shadow-lg max-w-full"
+                className="flex items-center justify-center gap-3 px-5 py-4 rounded-xl text-[11px] uppercase tracking-[0.14em] font-semibold shadow-lg w-full"
                 style={{
                   backgroundColor: C_DARK,
                   color: C_LIGHT,
@@ -106,39 +144,6 @@ export default function Hero({ whatsappLink, C_LIGHT, C_DARK, C_MID }) {
                 <Calendar size={15} />
                 Agendar Consulta
               </a>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-              className="mt-4 inline-flex px-4 py-3 rounded-2xl items-center gap-3 backdrop-blur-md border"
-              style={{
-                backgroundColor: "rgba(212, 205, 198, 0.92)",
-                borderColor: "rgba(255, 255, 255, 0.55)",
-                boxShadow: "0 16px 30px rgba(0, 0, 0, 0.10)",
-              }}
-            >
-              <div
-                className="w-10 h-10 rounded-full flex items-center justify-center shrink-0"
-                style={{ backgroundColor: C_DARK, color: C_LIGHT }}
-              >
-                <Award size={18} />
-              </div>
-              <div>
-                <p
-                  className="text-sm font-bold font-serif leading-none mb-1"
-                  style={{ color: C_DARK }}
-                >
-                  +15 Anos
-                </p>
-                <p
-                  className="text-[9px] tracking-[0.18em] uppercase font-semibold"
-                  style={{ color: `${C_DARK}90` }}
-                >
-                  De Experiência
-                </p>
-              </div>
             </motion.div>
           </motion.div>
         </div>
@@ -165,8 +170,8 @@ export default function Hero({ whatsappLink, C_LIGHT, C_DARK, C_MID }) {
 
             <motion.h1
               variants={fadeInUp}
-              className="text-5xl md:text-6xl lg:text-[4.5rem] font-serif leading-[1.08] font-light"
-              style={{ color: C_DARK }}
+              className="font-serif leading-[1.08] font-light"
+              style={{ color: C_DARK, fontSize: "clamp(3rem, 5.5vw, 4.5rem)" }}
             >
               Resultados Reais <br />
               <span className="italic" style={{ color: `${C_DARK}80` }}>
@@ -177,8 +182,8 @@ export default function Hero({ whatsappLink, C_LIGHT, C_DARK, C_MID }) {
 
             <motion.p
               variants={fadeInUp}
-              className="text-lg md:text-xl leading-relaxed max-w-lg font-light"
-              style={{ color: `${C_DARK}BB` }}
+              className="leading-relaxed max-w-lg font-light"
+              style={{ color: `${C_DARK}BB`, fontSize: "clamp(1rem, 1.4vw, 1.25rem)" }}
             >
               Tecnologia avançada, conforto e um atendimento personalizado
               totalmente focado na sua saúde bucal e bem-estar.
